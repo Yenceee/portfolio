@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0b0d;
+  --surface: #14161a;
+  --elevated: #1c1f24;
+  --border: #2a2d33;
+  --ink: #f5f6f7;
+  --ink-2: #9ca3af;
+  --muted: #6b7280;
+  --accent: #00e5b8;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-border: var(--border);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Always-visible faint scrollbar (About drawer) */
+.soft-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.25) transparent;
+}
+
+/* Scrollbar that only appears while hovering (Firefox + WebKit) */
+.hover-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.3s ease;
+}
+
+.hover-scroll:hover {
+  scrollbar-color: rgba(156, 163, 175, 0.4) transparent;
+}
+
+/* WebKit Engine (Chrome, Edge, Safari) Support */
+.hover-scroll::-webkit-scrollbar {
+  height: 5px;
+}
+
+.hover-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.hover-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+}
+
+.hover-scroll:hover::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.35);
+}
+
+.hover-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+/* Filmstrip scrollbar: transparent, lalabas lang kapag hinover */
+.film-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.film-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.film-scroll::-webkit-scrollbar-button {
+  display: none;
+}
+.film-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 9999px;
+}
+.film-scroll:hover::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+}
+/* Firefox */
+@supports not selector(::-webkit-scrollbar) {
+  .film-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  .film-scroll:hover {
+    scrollbar-color: #9ca3af transparent;
+  }
+}
