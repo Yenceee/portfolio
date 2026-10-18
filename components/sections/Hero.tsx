@@ -601,17 +601,6 @@ export default function Hero({ onOpenAbout }: HeroProps) {
             <Footer embedded active={activePanel === PANEL.contact} />
           </div>
         </div>
-
-        {/* Scroll hint, nawawala kapag nag-scroll na */}
-        <div
-          className="absolute bottom-3 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 transition-opacity duration-300 sm:bottom-8"
-          style={{ zIndex: 3, opacity: activePanel === 0 ? 1 : 0 }}
-        >
-          <span className="text-xs tracking-widest text-muted">
-            {lite ? "SWIPE TO EXPLORE" : "SCROLL TO EXPLORE"}
-          </span>
-          <div className="h-8 w-px bg-linear-to-b from-accent/60 to-transparent" />
-        </div>
       </div>
     </section>
   );
