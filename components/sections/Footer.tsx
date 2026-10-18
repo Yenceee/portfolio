@@ -55,20 +55,20 @@ export default function Footer({
           >
             {EMAIL}
           </a>
-          {PHONES.map((phone) => (
-            <span
-              key={phone}
-              className={embedded ? "" : "flex items-center gap-2"}
-            >
-              {!embedded && <span className="text-muted">|</span>}
-              <a
-                href={`tel:${phone}`}
-                className="transition-colors hover:text-accent"
-              >
-                {phone}
-              </a>
-            </span>
-          ))}
+          {!embedded && <span className="text-muted">|</span>}
+          <span>
+            {PHONES.map((phone, i) => (
+              <span key={phone}>
+                {i > 0 && <span className="mx-1.5 text-muted">/</span>}
+                <a
+                  href={`tel:${phone}`}
+                  className="transition-colors hover:text-accent"
+                >
+                  {phone}
+                </a>
+              </span>
+            ))}
+          </span>
         </p>
         <div className="mx-auto mt-10 max-w-5xl border-t border-border pt-6">
           <p className="text-xs text-muted">
