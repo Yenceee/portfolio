@@ -1,8 +1,10 @@
-// components/sections/Footer.tsx
 "use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+
+const EMAIL = "pinto.larencemcdale.salas@gmail.com";
+const PHONES = ["+639978809937", "+639238690325"];
 
 interface SectionProps {
   /** true kapag nasa loob ng sphere panel */
@@ -41,21 +43,32 @@ export default function Footer({
           and design systems.
         </p>
         <p
-          className={`mt-6 text-sm text-ink ${embedded ? "flex flex-col items-center gap-2" : ""}`}
+          className={`mt-6 text-sm text-ink ${
+            embedded
+              ? "flex flex-col items-center gap-2"
+              : "flex flex-wrap items-center justify-center gap-x-2 gap-y-1"
+          }`}
         >
           <a
-            href="mailto:pinto.larencemcdale.sales@gmail.com"
+            href={`mailto:${EMAIL}`}
             className="break-all transition-colors hover:text-accent"
           >
-            pinto.larencemcdale.sales@gmail.com
+            {EMAIL}
           </a>
-          {!embedded && <span className="mx-2 text-muted">|</span>}
-          <a
-            href="tel:+639978609937"
-            className="transition-colors hover:text-accent"
-          >
-            +639978609937
-          </a>
+          {PHONES.map((phone) => (
+            <span
+              key={phone}
+              className={embedded ? "" : "flex items-center gap-2"}
+            >
+              {!embedded && <span className="text-muted">|</span>}
+              <a
+                href={`tel:${phone}`}
+                className="transition-colors hover:text-accent"
+              >
+                {phone}
+              </a>
+            </span>
+          ))}
         </p>
         <div className="mx-auto mt-10 max-w-5xl border-t border-border pt-6">
           <p className="text-xs text-muted">
