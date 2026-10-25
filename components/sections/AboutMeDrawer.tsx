@@ -54,11 +54,7 @@ const certificates = [
   },
 ];
 
-const resumePages = [
-  "/resume/resume-1.png",
-  "/resume/resume-2.png",
-  "/resume/resume-3.png",
-];
+const resumePreview = "/resume/resume-1.png";
 
 const slides = [
   {
@@ -349,7 +345,7 @@ export default function AboutMeDrawer({
           style={{ left: mousePos.x + 16, top: mousePos.y + 16 }}
         >
           <Image
-            src={resumePages[0]}
+            src={resumePreview}
             alt="Resume preview"
             width={224}
             height={290}
